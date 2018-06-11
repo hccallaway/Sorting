@@ -14,6 +14,12 @@ let checkSorted = function(arr) {
   return checkIfSorted;
 };
 
+function split(wholeArray) {
+  /* your code here to define the firstHalf and secondHalf arrays */
+
+  return [firstHalf, secondHalf];
+}
+
 let mergeSort = function(arr) {
   let isSorted = checkSorted(arr);
   while (!isSorted) {
