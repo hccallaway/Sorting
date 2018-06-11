@@ -18,7 +18,7 @@ function split(wholeArray) {
   /* your code here to define the firstHalf and secondHalf arrays */
   let middle = Math.floor(wholeArray.length / 2.0);
   let firstHalf = wholeArray.slice(0, middle);
-  let secondHalf = wholeArray.slice(middle, wholeArray.length);
+  let secondHalf = wholeArray.slice(middle);
   return [firstHalf, secondHalf];
 }
 
@@ -33,17 +33,20 @@ function merge(arr1, arr2) {
       arr2 = arr2.slice(1);
     }
   }
+  console.log("sorted Array", sortedArr)
   return sortedArr;
+}
+
+function mergeSort(arr) {
+  console.log("array is", arr)
+  if (arr.length === 1) {
+    return arr;
+  }
+ let splitted = split(arr)
+ let array1 = splitted[0]
+ let array2 = splitted[1]
+  return merge(mergeSort(array1), mergeSort(array2))
 }
 
 // Base case: if an array is one element, it is sorted
 // Recursive case: split the array and merge sort each half. Then merge these two halves into a sorted whole
-
-function mergeSort(arr) {
-  if (arr.length === 1) {
-    return arr;
-  } else {
-    merge(split(arr));
-  }
-  return arr;
-}
