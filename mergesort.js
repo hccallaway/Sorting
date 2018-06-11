@@ -4,7 +4,7 @@
 //   arr[j] = temp;
 // };
 
-// let checkSorted = function(arr) {
+// function checkSorted(arr) {
 //   let checkIfSorted = true;
 //   for (let i = 0; i < arr.length - 1; i++) {
 //     if (arr[i] > arr[i + 1]) {
@@ -12,37 +12,38 @@
 //     }
 //   }
 //   return checkIfSorted;
-// };
+// }
 
 function split(wholeArray) {
   /* your code here to define the firstHalf and secondHalf arrays */
-  let middle = Math.floor(wholeArray.length/2.0)
-  let firstHalf = wholeArray.slice(0, middle)
-  let secondHalf = wholeArray.slice(middle, wholeArray.length)
+  let middle = Math.floor(wholeArray.length / 2.0);
+  let firstHalf = wholeArray.slice(0, middle);
+  let secondHalf = wholeArray.slice(middle, wholeArray.length);
   return [firstHalf, secondHalf];
 }
 
-function merge(Arr1, Arr2) {
-  let sortedArr = []
-  if (Arr1[0] <= Arr2[0]) {
-    sortedArr.push(Arr2[0])
-    Arr1 = Arr1.shift()
-  } else {
-    sortedArr.push(Arr1[0])
-    Arr2 = Arr2.shift()
+function merge(arr1, arr2) {
+  let sortedArr = [];
+  while (arr1.length > 0 || arr2.length > 0) {
+    if (arr1[0] <= arr2[0]) {
+      sortedArr.push(arr1[0]);
+      arr1 = arr1.slice(1);
+    } else {
+      sortedArr.push(arr2[0]);
+      arr2 = arr2.slice(1);
+    }
   }
-  return sortedArr
+  return sortedArr;
 }
 
+// Base case: if an array is one element, it is sorted
+// Recursive case: split the array and merge sort each half. Then merge these two halves into a sorted whole
 
-// let mergeSort = function(arr) {
-//   let isSorted = checkSorted(arr);
-//   while (!isSorted) {
-//     // split array into single
-//     //
-
-//     }
-//     isSorted = checkSorted(arr);
-//   }
-//   return arr;
-// };
+function mergeSort(arr) {
+  if (arr.length === 1) {
+    return arr;
+  } else {
+    merge(split(arr));
+  }
+  return arr;
+}
