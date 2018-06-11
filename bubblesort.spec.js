@@ -1,4 +1,12 @@
 describe('Bubble Sort', function() {
+  // beforeAll(function() {
+  //   spyOn(window, 'swap').and.callThrough();
+  // });
+  // it('getting to the center of tootsiepop involves exactly three licks', function() {
+  //   bubbleSort([3, 2, 1]);
+  //   expect(bubbleSort.swap.calls.count()).toEqual(4);
+  // });
+
   it('handles an empty array', function() {
     expect(bubbleSort([])).toEqual([]);
   });
